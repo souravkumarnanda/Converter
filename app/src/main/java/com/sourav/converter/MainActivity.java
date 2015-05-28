@@ -29,12 +29,17 @@ public class MainActivity extends Activity {
         btnconvert.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(MainActivity.this,
-                        "Converted", Toast.LENGTH_SHORT).show();
-                double cms = Double.valueOf(editcms.getText().toString());
-                double inches = cms * 0.393701;
-                String inch = String.format("%.2f",inches);
-                editinches.setText(String.valueOf(inch));
+
+                try {
+                    double cms = Double.valueOf(editcms.getText().toString());
+                    double inches = cms * 0.393701;
+                    String inch = String.format("%.2f", inches);
+                    editinches.setText(String.valueOf(inch));
+                    Toast.makeText(MainActivity.this, "Converted", Toast.LENGTH_SHORT).show();
+                }
+                catch (Exception e){
+                    Toast.makeText(MainActivity.this, "Plz Enter any value Dude!", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
